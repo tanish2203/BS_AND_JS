@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK-10</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .show-date {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .show-time {
+      text-align: center;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button type="button" onclick="showDateTime()">Show Date and Time</button>
+
+  <div class="show-date"></div>
+  <div class="show-time"></div>
+
+  <script>
+    const showDateTime = () => {
+      const now = new Date();
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString();
+
+      document.querySelector('.show-date').textContent = date;
+      document.querySelector('.show-time').textContent = time;
+    };
+
+    showDateTime();
+  </script>
+</body>
+</html>

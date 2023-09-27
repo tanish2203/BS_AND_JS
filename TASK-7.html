@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK-7</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input {
+      width: 100px;
+      margin-bottom: 10px;
+      padding: 1%;
+    }
+
+    button {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .output {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Reverse Number</h1>
+
+  <input type="number" id="number" placeholder="Enter a number">
+  <button type="button" id="reverse-button">Reverse</button>
+
+  <div class="output"></div>
+
+  <script>
+    const reverseNumber = (num) => {
+      let reversedNum = 0;
+      while (num > 0) {
+        reversedNum = reversedNum * 10 + (num % 10);
+        num = Math.floor(num / 10);
+      }
+      return reversedNum;
+    };
+
+    const reverseButton = document.getElementById('reverse-button');
+    const outputElement = document.querySelector('.output');
+
+    reverseButton.addEventListener('click', () => {
+      const number = document.getElementById('number').value;
+      const reversedNumber = reverseNumber(number);
+
+      outputElement.textContent = reversedNumber;
+    });
+  </script>
+</body>
+</html>

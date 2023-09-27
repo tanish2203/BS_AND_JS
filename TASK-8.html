@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK-8</title>
+</head>
+<body>
+  <input type="text" id="string" placeholder="Enter a string">
+  <button type="button" id="sort-button">Sort</button>
+
+  <div id="output"></div>
+
+  <script>
+    const sortString = (string) => {
+      return string.split('').sort().join('');
+    };
+
+    const sortButton = document.getElementById('sort-button');
+    const outputElement = document.getElementById('output');
+
+    sortButton.addEventListener('click', () => {
+      const string = document.getElementById('string').value;
+      const sortedString = sortString(string);
+
+      outputElement.textContent = sortedString;
+    });
+  </script>
+</body>
+</html>

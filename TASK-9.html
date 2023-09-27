@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK-9</title>
+</head>
+<body>
+  <h1>Multiplication and Division</h1>
+
+  <form>
+    <input type="number" id="firstNumber" placeholder="Enter first number"><br>
+    <input type="number" id="secondNumber" placeholder="Enter second number"><br>
+    <input type="button" id="multiply-button" value="Multiply">
+    <input type="button" id="divide-button" value="Divide">
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    const multiplyButton = document.getElementById('multiply-button');
+    const divideButton = document.getElementById('divide-button');
+    const outputElement = document.getElementById('output');
+
+    multiplyButton.addEventListener('click', () => {
+      const firstNumber = document.getElementById('firstNumber').value;
+      const secondNumber = document.getElementById('secondNumber').value;
+      const product = firstNumber * secondNumber;
+
+      outputElement.textContent = `${firstNumber} * ${secondNumber} = ${product}`;
+    });
+
+    divideButton.addEventListener('click', () => {
+      const firstNumber = document.getElementById('firstNumber').value;
+      const secondNumber = document.getElementById('secondNumber').value;
+      const quotient = firstNumber / secondNumber;
+
+      outputElement.textContent = `${firstNumber} / ${secondNumber} = ${quotient}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK-14</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    form {
+      width: 500px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #000;
+      color: #fff;
+      border: none;
+    }
+
+    input[type="checkbox"] {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <form action="/action_page.php" onsubmit="return submitForm();">
+    <h2>Registration Form</h2>
+    <input type="text" name="fname" placeholder="First Name">
+    <input type="text" name="lname" placeholder="Last Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="repassword" placeholder="Re-enter Password">
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">Female
+    <input type="number" name="age" placeholder="Age">
+    <input type="tel" name="phone" placeholder="Phone Number">
+    <input type="text" name="address" placeholder="Address">
+    <select name="state">
+      <option value="">State</option>
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      
+    </select>
+    <select name="country">
+      <option value="">Country</option>
+      <option value="US">United States</option>
+      <option value="CA">Canada</option>
+      ...
+    </select>
+    <select name="languages" multiple>
+      <option value="English">English</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Spanish">Spanish</option>
+      ...
+    </select>
+    <input type="checkbox" name="declare" value="true"> Hereby I declare all the given details are correct.
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    // Check if the passwords match
+    function validatePasswords() {
+      const password = document.querySelector('input[name="password"]');
+      const rePassword = document.querySelector('input[name="repassword"]');
+
+      if (password.value !== rePassword.value) {
+        rePassword.setCustomValidity('Passwords must match.');
+      } else {
+        rePassword.setCustomValidity('');
+      }
+    }
+
+    // Submit the form if it is valid
+    function submitForm() {
+      const form = document.querySelector('form');
+
+      if (form.checkValidity()) {
+        form.submit();
+      } else {
+        form.classList.add('invalid');
+      }
+
+      return false;
+    }
+
+    // Add event listeners
+    document.querySelector('input[name="password"]').addEventListener('input', validatePasswords);
+    document.querySelector('input[name="repassword"]').addEventListener('input', validatePasswords);
+  </script>
+</body>
+</html>
